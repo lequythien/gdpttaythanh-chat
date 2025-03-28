@@ -48,14 +48,14 @@ const MessageInput = () => {
   };
 
   return (
-    <div className="p-4 w-full">
+    <div className="p-2 sm:p-4 w-full">
       {imagePreview && (
-        <div className="mb-3 flex items-center gap-2">
+        <div className="mb-2 sm:mb-3 flex items-center gap-2">
           <div className="relative">
             <img
               src={imagePreview}
               alt="Preview"
-              className="w-20 h-20 object-cover rounded-lg border border-zinc-700"
+              className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg border border-zinc-700"
             />
             <button
               onClick={removeImage}
@@ -69,12 +69,12 @@ const MessageInput = () => {
         </div>
       )}
 
-      <form onSubmit={handleSendMessage} className="flex items-center gap-2">
-        <div className="flex-1 flex gap-2">
+      <form onSubmit={handleSendMessage} className="flex items-center gap-1 sm:gap-2">
+        <div className="flex-1 flex items-center gap-1 sm:gap-2">
           <input
             type="text"
-            className="w-full input input-bordered rounded-lg input-sm sm:input-md"
-            placeholder="Type a message..."
+            className="w-full input input-bordered rounded-lg input-sm"
+            placeholder="Nhập tin nhắn..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
@@ -88,11 +88,11 @@ const MessageInput = () => {
 
           <button
             type="button"
-            className={`hidden sm:flex btn btn-circle
+            className={`btn btn-circle btn-sm
                      ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
             onClick={() => fileInputRef.current?.click()}
           >
-            <Image size={20} />
+            <Image size={16} />
           </button>
         </div>
         <button
@@ -100,10 +100,11 @@ const MessageInput = () => {
           className="btn btn-sm btn-circle"
           disabled={!text.trim() && !imagePreview}
         >
-          <Send size={20} />
+          <Send size={16} />
         </button>
       </form>
     </div>
   );
 };
+
 export default MessageInput;
