@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-header-navbar {
+  background-image: url(./assets/images/bgheader.svg);
+  background-color: brown;
+}
